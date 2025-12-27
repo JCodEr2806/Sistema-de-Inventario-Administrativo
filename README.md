@@ -38,7 +38,7 @@ ng serve
 ### Imagenes
 
 #### Dashboar
-![](https://github.com/JCodEr2806/Sistema-de-Inventario-Administrativo/blob/19f2c11bd6325eb8427854fe5de8f48e1d9af9c3/public/examples/dashboard.png)
+![](https://github.com/JCodEr2806/Sistema-de-Inventario-Administrativo/blob/d90d61e545b9d380d40332b368d8a1e7a7a782fb/public/examples/dashboard.png)
 #### Interfaz de Productos
 ![](https://github.com/JCodEr2806/Sistema-de-Inventario-Administrativo/blob/19f2c11bd6325eb8427854fe5de8f48e1d9af9c3/public/examples/example2.png)
 ![](https://github.com/JCodEr2806/Sistema-de-Inventario-Administrativo/blob/19f2c11bd6325eb8427854fe5de8f48e1d9af9c3/public/examples/example4.png)

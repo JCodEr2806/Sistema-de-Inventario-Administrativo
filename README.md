@@ -1,27 +1,45 @@
-# InventarioAbarrotes
+# Sistema de Inventario para Abarrotes
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.17.
+Proyecto de **panel administrativo** para la gestión de productos de una tienda de abarrotes, desarrollado con **Angular** y **Bootstrap**.  
+El sistema permite administrar el inventario mediante operaciones CRUD, utilizando **JSON** como fuente de datos para simular una base de datos.
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Descripción del Proyecto
 
-## Code scaffolding
+La aplicación permite al usuario gestionar los productos de una tienda de abarrotes desde una interfaz web, facilitando el registro, edición, eliminación y visualización de los productos del inventario entre otras cosas más.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Este proyecto fue desarrollado con el objetivo de practicar el uso de **Angular**, la estructura de componentes y el manejo de datos en aplicaciones frontend.
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Tecnologías Utilizadas
+- Angular  
+- TypeScript  
+- Bootstrap  
+- HTML  
+- CSS  
+- JSON  
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+## Funcionalidades
+- Panel administrativo para la gestión de productos
+- Operaciones CRUD (crear, leer, actualizar y eliminar)
+- Manejo de datos mediante archivos JSON
+- Interfaz con Bootstrap
+- Uso de componentes y servicios de Angular
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Instalación y Ejecución
+```
+npm install
+ng serve
 
-## Further help
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Imagenes
+
+#### Dashboar
+
+#### Interfaz de Productos
+![](https://github.com/JCodEr2806/Sistema-de-Inventario-Administrativo/blob/19f2c11bd6325eb8427854fe5de8f48e1d9af9c3/public/examples/example2.png)
+#### Interfaz de Cobros y Pagos
+![](https://github.com/JCodEr2806/Sistema-de-Inventario-Administrativo/blob/19f2c11bd6325eb8427854fe5de8f48e1d9af9c3/public/examples/example3.png)

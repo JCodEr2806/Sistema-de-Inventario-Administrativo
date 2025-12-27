@@ -1,0 +1,151 @@
+<div class="container-fluid p-4 bg-light min-vh-100">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="text-primary fw-bold">
+      <i class="bi bi-cash-stack me-2"></i>Gestión de Cobros y Pagos
+    </h1>
+  </div>
+  <!-- TABLA DE INVENTARIO -->
+  <div class="d-flex flex-wrap gap-2 mb-3">
+    <div class="card shadow flex-fill">
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="card-header text-dark fw-bold">
+          PAGOS PENDIENTES ( {{ compras.length }} )({{
+            totalPagosPendientes | number : "1.2-2"
+          }}$)
+        </div>
+        <div class="pe-4">
+          <a
+            href=""
+            [routerLink]="['/cobros-pagos/historial/pagos']"
+            class="text-decoration-none"
+            >HISTORIAL DE PAGOS</a
+          >
+        </div>
+      </div>
+      <div class="card-body p-0">
+        <div class="table-responsive">
+          <table class="table table-hover table-striped mb-0">
+            <thead class="table-light">
+              <tr>
+                <th></th>
+                <th class="text-center">ID</th>
+                <th>Proveedor</th>
+                <th class="text-center">Fecha Registro</th>
+                <th class="text-center">Precio Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let comp of compras">
+                <td>
+                  <button
+                    class="btn btn-sm btn-success"
+                    (click)="realizarPago(comp.id)"
+                  >
+                    <i class="bi bi-check-circle"></i>
+                    Pagar
+                  </button>
+                </td>
+                <td class="text-center" style="min-width: 50px">
+                  {{ comp.id }}
+                </td>
+                <td class="text-truncate" style="max-width: 150px">
+                  {{ obtenerNombreProveedor(comp.proveedorId) }}
+                </td>
+
+                <td class="text-center">
+                  {{ comp.fecha | date : "dd/MM/yyyy" }}
+                </td>
+                <td class="text-center">
+                  $ {{ comp.total | number : "1.2-2" }}
+                </td>
+              </tr>
+            </tbody>
+            <!-- Mostrar si no hay productos -->
+            <tfoot *ngIf="!cargando && compras.length === 0">
+              <tr>
+                <td colspan="7" class="text-center p-3">
+                  <i class="bi bi-info-circle-fill me-1"></i> No hay pagos pendientes
+                  registrados.
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- VENTAS -->
+    <div class="card shadow flex-fill">
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="card-header text-dark fw-bold">
+          COBROS PENDIENTES ( {{ ventas.length }} )({{
+            totalCobrosPendientes | number : "1.2-2"
+          }}$)
+        </div>
+        <div class="pe-4">
+          <a
+            href=""
+            [routerLink]="['/cobros-pagos/historial/cobros']"
+            class="text-decoration-none"
+            >HISTORIAL DE COBROS</a
+          >
+        </div>
+      </div>
+      <div class="card-body p-0">
+        <div class="table-responsive">
+          <table class="table table-hover table-striped mb-0">
+            <thead class="table-light">
+              <tr>
+                <th></th>
+                <th class="text-center">ID</th>
+                <th>Cliente</th>
+                <th>Dirección</th>
+                <th class="text-center">Fecha</th>
+                <th class="text-center">Precio Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let vent of ventas">
+                <td>
+                  <button
+                    class="btn btn-sm btn-success"
+                    (click)="realizarCobro(vent.id)"
+                  >
+                    <i class="bi bi-cash"></i>
+                    Cobrar
+                  </button>
+                </td>
+                <td class="text-center" style="min-width: 50px">
+                  {{ vent.id }}
+                </td>
+                <td class="text-truncate" style="max-width: 150px">
+                  {{ obtenerNombreCliente(vent.clienteId) }}
+                </td>
+                <td class="text-truncate" style="max-width: 150px">
+                  {{ obtenerDireccionVenta(vent.clienteId) }}
+                </td>
+
+                <td class="text-center">
+                  {{ vent.fecha | date : "dd/MM/yyyy" }}
+                </td>
+                <td class="text-center">
+                  $ {{ vent.total | number : "1.2-2" }}
+                </td>
+              </tr>
+            </tbody>
+            <!-- Mostrar si no hay pagos -->
+            <tfoot *ngIf="!cargando && ventas.length === 0">
+              <tr>
+                <td colspan="7" class="text-center p-3">
+                  <i class="bi bi-info-circle-fill me-1"></i> 
+                  No hay cobros pendientes
+                  registrados.
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

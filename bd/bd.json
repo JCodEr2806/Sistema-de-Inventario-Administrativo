@@ -1,0 +1,285 @@
+{
+  "productos": [
+    {
+      "id": "101",
+      "nombre": "Arroz",
+      "categoria": "Cereales",
+      "descripcion": "Arroz blanco de alta calidad",
+      "precio": 22.5,
+      "cantidad": 100,
+      "proveedorId": "3"
+    },
+    {
+      "id": "102",
+      "nombre": "Frijoles",
+      "categoria": "Legumbres",
+      "descripcion": "Frijoles negros de alta calidad",
+      "precio": 30,
+      "cantidad": 5,
+      "proveedorId": "1"
+    },
+    {
+      "id": "103",
+      "nombre": "Maíz",
+      "categoria": "Cereales",
+      "descripcion": "Maíz amarillo de alta calidad",
+      "precio": 25,
+      "cantidad": 75,
+      "proveedorId": "1"
+    },
+    {
+      "id": "104",
+      "nombre": "Leche",
+      "categoria": "Lacteos",
+      "descripcion": "Es leche p",
+      "cantidad": 124,
+      "precio": 11.5,
+      "proveedorId": "1"
+    },
+    {
+      "id": "105",
+      "nombre": "Milo",
+      "categoria": "Nose",
+      "descripcion": "Milo p",
+      "cantidad": 100,
+      "precio": 23.5,
+      "proveedorId": "3"
+    },
+    {
+      "id": "106",
+      "nombre": "Leche en Polvo",
+      "categoria": "Lacte",
+      "descripcion": "Leche bañado en polbo XD",
+      "cantidad": 20,
+      "precio": 13.5,
+      "proveedorId": "1"
+    }
+  ],
+  "proveedores": [
+    {
+      "id": "1",
+      "nombre": "Proveedor A",
+      "ruc": "123456789",
+      "telefono": "123456789",
+      "email": "contacto@proveedora.com",
+      "direccion": "Av. Siempre Viva 742",
+      "codigo_postal": "12345",
+      "ciudad": "Springfield",
+      "pais": "USA",
+      "descripcion": "Proveedor de productos "
+    },
+    {
+      "id": "2",
+      "nombre": "Nose",
+      "ruc": "221021",
+      "telefono": "13242342",
+      "email": "Nose@gmail.com",
+      "direccion": "Nose",
+      "codigo_postal": 2312232,
+      "ciudad": "Cerro",
+      "pais": "Peru",
+      "descripcion": "Distribuidor peruano XD"
+    },
+    {
+      "id": "3",
+      "nombre": "Prov Cueva",
+      "ruc": "123213213",
+      "telefono": "23834893",
+      "email": "Cuevita@cueva.wbon",
+      "direccion": "Nose",
+      "codigo_postal": 320189,
+      "ciudad": "Lema",
+      "pais": "Cerru",
+      "descripcion": "Wbin por el penal"
+    }
+  ],
+  "compras": [
+    {
+      "id": "1762354821406",
+      "fecha": "2025-11-05",
+      "proveedorId": "1",
+      "total": 1426,
+      "pagado": true,
+      "detalles": [
+        {
+          "productoId": "104",
+          "nombre": "Leche",
+          "cantidad": 124,
+          "precioUnitario": 11.5,
+          "subTotal": 1426
+        }
+      ]
+    },
+    {
+      "id": "1762358377104",
+      "fecha": "2025-11-05",
+      "proveedorId": "3",
+      "total": 2350,
+      "pagado": true,
+      "detalles": [
+        {
+          "productoId": "105",
+          "nombre": "Milo",
+          "cantidad": 100,
+          "precioUnitario": 23.5,
+          "subTotal": 2350
+        }
+      ]
+    },
+    {
+      "id": "1762478214651",
+      "fecha": "2025-11-07",
+      "proveedorId": "1",
+      "pagado": true,
+      "total": 270,
+      "detalles": [
+        {
+          "productoId": "106",
+          "nombre": "Leche en Polvo",
+          "cantidad": 20,
+          "precioUnitario": 13.5,
+          "subTotal": 270
+        }
+      ]
+    }
+  ],
+  "ventas": [
+    {
+      "id": "1",
+      "fecha": "2025-11-05",
+      "clienteId": "1",
+      "pagado": true,
+      "total": 1426.5,
+      "detalles": [
+        {
+          "productoId": "104",
+          "nombre": "Leche",
+          "cantidad": 124,
+          "precioUnitario": 11.5,
+          "subTotal": 1426
+        }
+      ],
+      "metodoPago": "efectivo"
+    },
+    {
+      "id": "2",
+      "fecha": "2025-11-05",
+      "clienteId": "1",
+      "pagado": false,
+      "total": 1426.5,
+      "detalles": [
+        {
+          "productoId": "104",
+          "nombre": "Leche",
+          "cantidad": 124,
+          "precioUnitario": 11.5,
+          "subTotal": 1426
+        }
+      ],
+      "metodoPago": "efectivo"
+    },
+    {
+      "id": "3",
+      "fecha": "2025-11-05",
+      "clienteId": "2",
+      "pagado": false,
+      "total": 2001,
+      "detalles": [
+        {
+          "productoId": "104",
+          "nombre": "Leche",
+          "cantidad": 124,
+          "precioUnitario": 11.5,
+          "subTotal": 1426
+        }
+      ],
+      "metodoPago": "efectivo"
+    },
+    {
+      "id": "4",
+      "fecha": "2025-11-05",
+      "clienteId": "2",
+      "pagado": true,
+      "total": 150.5,
+      "detalles": [
+        {
+          "productoId": "104",
+          "nombre": "Leche",
+          "cantidad": 124,
+          "precioUnitario": 11.5,
+          "subTotal": 1426
+        }
+      ],
+      "metodoPago": "efectivo"
+    }
+  ],
+  "registros": [
+    {
+      "id": "1",
+      "pagos": [
+        {
+          "id": "1762470625383",
+          "id_compra": "1762354821406",
+          "documento-emitido": true,
+          "fecha_pago": "2025-11-06",
+          "proveedor_id": "1",
+          "total_pago": 1426
+        },
+        {
+          "id": "1762471257038",
+          "id_compra": "1762358377104",
+          "documento-emitido": true,
+          "fecha_pago": "2025-11-06",
+          "proveedor_id": "3",
+          "total_pago": 2350
+        },
+        {
+          "id": "1763140909435",
+          "id_compra": "1762478214651",
+          "documento-emitido": true,
+          "fecha_pago": "2025-11-14",
+          "proveedor_id": "1",
+          "total_pago": 270
+        }
+      ],
+      "cobros": [
+        {
+          "id": "1762470462759",
+          "id_venta": "1",
+          "documento-emitido": true,
+          "fecha_cobro": "2025-11-06",
+          "cliente_id": "1",
+          "total_cobro": 1426.5
+        }
+      ]
+    }
+  ],
+  "usuarios": [
+    {
+      "id": "1",
+      "nombreUsuario": "admin",
+      "contraseña": "admin123",
+      "rol": "administrador"
+    }
+  ],
+  "clientes": [
+    {
+      "id": "1",
+      "nombre": "Cliente X",
+      "apellido": "Nose",
+      "direccion": "Av. no",
+      "ciudad": "Lema",
+      "telefono": "987654321",
+      "email": "clienteX@gmail.com"
+    },
+    {
+      "id": "2",
+      "nombre": "Jose Jeri",
+      "apellido": "Nose",
+      "direccion": "Nose",
+      "ciudad": "Cerru",
+      "telefono": "23829389",
+      "email": "tuPresi@presi.com"
+    }
+  ]
+}

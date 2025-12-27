@@ -1,0 +1,147 @@
+<div class="container-fluid p-4 bg-light min-vh-100">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="text-primary fw-bold">
+      <i 
+      class="bi bi-shop-window me-2"
+      ></i>Gestión de Inventario de Abarrotes
+    </h1>
+
+    <div>
+      <button
+        class="btn btn-success me-3 shadow-sm"
+        [routerLink]="['/inventario/agregar']"
+      >
+        <i class="bi bi-plus-circle-fill me-1"></i> Agregar Producto
+      </button>
+    </div>
+  </div>
+
+  <!-- Mensaje de Carga -->
+  <div *ngIf="cargando" class="alert alert-info text-center">
+    <div class="spinner-border text-info me-2" role="status">
+      <span class="visually-hidden">Cargando...</span>
+    </div>
+    Cargando datos del inventario...
+  </div>
+
+  <div *ngIf="mensaje" class="alert alert-warning text-center">
+    {{ mensaje }}
+  </div>
+
+  <!-- FILTRO -->
+  <div class="d-flex flex-wrap gap-2 mb-3 align-items-center">
+    <div class="input-group shadow-sm" style="max-width: 400px">
+      <span class="input-group-text bg-primary text-white">
+        <i class="bi bi-search"></i>
+      </span>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Buscar producto"
+        [(ngModel)]="filtro"
+        (input)="filtrarProductos()"
+      />
+    </div>
+    <!-- FILTRO POR CATEGORIA -->
+    <div class="input-group shadow-sm" style="max-width: 250px">
+      <span class="input-group-text bg-secondary text-white">
+        <i class="bi bi-tags"></i>
+      </span>
+      <select
+        class="form-select"
+        [(ngModel)]="categoriaSeleccionada"
+        (change)="filtrarProductos()"
+      >
+        <option value="">Todas las categorías</option>
+        <option *ngFor="let cat of categorias" [value]="cat">
+          {{ cat }}
+        </option>
+      </select>
+    </div>
+  </div>
+
+  <!-- TABLA DE INVENTARIO -->
+  <div class="card shadow">
+    <div class="card-header bg-secondary text-white fw-bold">
+      Lista de Productos
+    </div>
+    <div class="card-body p-0">
+      <div class="table-responsive">
+        <table class="table table-hover table-striped mb-0">
+          <thead class="table-dark">
+            <tr>
+              <th class="text-center">ID</th>
+              <th>Nombre</th>
+              <th>Categoría</th>
+              <th>Proveedor</th>
+              <th class="text-center">Precio (USD)</th>
+              <th>Stock</th>
+              <th class="text-center">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let prod of productos">
+              <td class="text-center" style="min-width: 50px">{{ prod.id }}</td>
+              <td>{{ prod.nombre }}</td>
+              <td>
+                <span class="badge text-bg-primary">{{ prod.categoria }}</span>
+              </td>
+              <td class="text-truncate" style="max-width: 150px">
+                {{ obtenerNombreProveedor(prod.proveedorId) }}
+              </td>
+              <td class="text-center">
+                $ {{ prod.precio | number : "1.2-2" }}
+              </td>
+              <td>
+                <span
+                  class="badge"
+                  [class.text-bg-success]="prod.cantidad > 20"
+                  [class.text-bg-warning]="
+                    prod.cantidad > 5 && prod.cantidad <= 20
+                  "
+                  [class.text-bg-danger]="prod.cantidad <= 5"
+                >
+                  {{ prod.cantidad }}
+                </span>
+              </td>
+              <td class="text-center">
+                <!-- Falta editar -->
+                <button
+                  class="btn btn-sm btn-info me-2 text-white"
+                  [routerLink]="['/inventario/editar', prod.id]"
+                >
+                  <i class="bi bi-pencil-square"></i> Editar
+                </button>
+                <button
+                  class="btn btn-sm btn-danger"
+                  (click)="eliminarProducto(prod.id)"
+                >
+                  <i class="bi bi-trash-fill"></i> Eliminar
+                </button>
+              </td>
+            </tr>
+          </tbody>
+          <!-- Mostrar si no hay productos -->
+          <tfoot *ngIf="!cargando && productos.length === 0">
+            <tr>
+              <td colspan="7" class="text-center p-3">
+                <i class="bi bi-info-circle-fill me-1"></i> No hay productos
+                registrados en el inventario.
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mensaje si no hay productos tras filtrar -->
+  <div
+    *ngIf="!cargando && productos.length === 0 && filtro"
+    class="alert alert-warning text-center mt-3"
+  >
+    <i class="bi bi-exclamation-triangle-fill me-2"></i>
+    No se encontraron productos que coincidan con "<strong>{{ filtro }}</strong
+    >".
+  </div>
+</div>

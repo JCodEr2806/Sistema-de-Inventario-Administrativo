@@ -1,0 +1,75 @@
+<div
+  class="container mt-4 bg-white shadow-lg d-flex justify-content-center"
+  style="height: 600px"
+>
+  <div class="mt-lg-5" style="width: 160vh">
+    <h3 *ngIf="tipoHistorial === 'pagos'" class="text-center mb-3 fs-4">
+      HISTORIAL DE PAGO
+    </h3>
+    <h3 *ngIf="tipoHistorial === 'cobros'" class="text-center mb-3 fs-4">
+      HISTORIAL DE COBRO
+    </h3>
+
+    <div *ngIf="cargando" class="text-center p-3">
+      <div class="spinner-border text-primary" role="status"></div>
+    </div>
+
+    <!-- Tabla de PAGOS -->
+    <table
+      *ngIf="!cargando && tipoHistorial === 'pagos'"
+      class="table table-striped shadow-lg"
+    >
+      <thead>
+        <tr>
+          <th class="text-center">DOCUMENTO</th>
+          <th>ID_COMPRA</th>
+          <th>PROVEEDOR</th>
+          <th>FECHA DE PAGO</th>
+          <th>IMPORTE PAGADO</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pago of pagos">
+          <td class="text-center">{{ obtenerResultadoDocEmitPag(pago.id) }}</td>
+          <td>{{ pago.id }}</td>
+          <td>{{ obtenerNombreProveedor(pago.proveedor_id) }}</td>
+          <td>{{ pago.fecha_pago }}</td>
+          <td>{{ pago.total_pago | currency : "USD" }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Tabla de COBROS -->
+    <table
+      *ngIf="!cargando && tipoHistorial === 'cobros'"
+      class="table table-striped shadow-lg"
+    >
+      <thead>
+        <tr>
+          <th class="text-center">DOCUMENTO</th>
+          <th>ID_COMPRA</th>
+          <th>CLIENTE</th>
+          <th>FECHA DE COBRO</th>
+          <th>IMPORTE COBRADO</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cobro of cobros">
+          <td class="text-center">{{ obtenerResultadoDocEmitCob(cobro.id) }}</td>
+          <td>{{ cobro.id }}</td>
+          <td>{{ obtenerNombreCliente(cobro.cliente_id) }}</td>
+          <td>{{ cobro.fecha_cobro }}</td>
+          <td>{{ cobro.total_cobro | currency : "USD" }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <button
+      type="button"
+      class="btn btn-secondary"
+      [routerLink]="['/cobros-pagos']"
+    >
+      <i class="bi bi-arrow-left-circle"></i> Volver
+    </button>
+  </div>
+</div>

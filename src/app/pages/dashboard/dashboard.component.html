@@ -1,0 +1,100 @@
+<div class="container py-4">
+
+  <!-- Resumen general -->
+  <div class="row g-3 mb-4">
+    <div class="col-md-4">
+      <div class="card text-center shadow-sm border-0">
+        <div class="card-body">
+          <h6 class="text-muted">Productos</h6>
+          <h3 class="fw-bold">{{ productos.length }}</h3>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card text-center shadow-sm border-0">
+        <div class="card-body">
+          <h6 class="text-muted">Proveedores</h6>
+          <h3 class="fw-bold">{{ proveedores.length }}</h3>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card text-center shadow-sm border-0">
+        <div class="card-body">
+          <h6 class="text-muted">Clientes</h6>
+          <h3 class="fw-bold">{{ clientes.length }}</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Totales -->
+  <div class="row g-3 mb-4">
+    <div class="col-md-4">
+      <div class="card text-center shadow-sm border-start border-success border-4">
+        <div class="card-body">
+          <h6 class="text-muted">Total Ventas ( {{ventas.length}} )</h6>
+          <h4 class="fw-bold text-success">S/ {{ billetera.ventasTotal | number:'1.2-2' }}</h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card text-center shadow-sm border-start border-danger border-4">
+        <div class="card-body">
+          <h6 class="text-muted">Total Compras ( {{compras.length}} )</h6>
+          <h4 class="fw-bold text-danger">S/ {{ billetera.comprasTotal | number:'1.2-2' }}</h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card text-center shadow-sm border-start border-primary border-4">
+        <div class="card-body">
+          <h6 class="text-muted">Ganancia Neta</h6>
+          <h4 class="fw-bold text-primary">S/ {{ billetera.ganancia | number:'1.2-2' }}</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ultimas ventas -->
+  <div class="card shadow-sm mb-4">
+    <div class="card-header bg-light fw-bold">Últimas Ventas</div>
+    <div class="card-body p-0">
+      <table class="table mb-0">
+        <thead class="table-light">
+          <tr>
+            <th>ID</th>
+            <th>Fecha</th>
+            <th>Cliente</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let venta of ventas">
+            <td>{{ venta.id }}</td>
+            <td>{{ venta.fecha }}</td>
+            <td>{{ obtenerNombreCliente(venta.clienteId) }}</td>
+            <td>S/ {{ venta.total | number:'1.2-2' }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card shadow-sm">
+    <div class="card-header bg-light fw-bold">Productos con Bajo Stock</div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item" *ngFor="let item of productosBajoStock">
+        <div class="d-flex justify-content-between align-items-center">
+          <span>{{ item.id }}</span>
+          <span>{{ item.nombre }}</span>
+          <span class="badge bg-danger">{{ item.cantidad }} unidades</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -35,6 +35,9 @@ ng serve
 
 ```
 
-###Imagenes
+### Imagenes
 
-![](https://github.com/JCodEr2806/Sistema-de-Inventario-Administrativo/blob/19f2c11bd6325eb8427854fe5de8f48e1d9af9c3/public/examples/dashboard.png).
+#### Dashboar
+![](https://github.com/JCodEr2806/Sistema-de-Inventario-Administrativo/blob/19f2c11bd6325eb8427854fe5de8f48e1d9af9c3/public/examples/dashboard.png)
+![](https://github.com/JCodEr2806/Sistema-de-Inventario-Administrativo/blob/19f2c11bd6325eb8427854fe5de8f48e1d9af9c3/public/examples/example1.png)
+![](https://github.com/JCodEr2806/Sistema-de-Inventario-Administrativo/blob/19f2c11bd6325eb8427854fe5de8f48e1d9af9c3/public/examples/example2.png)
